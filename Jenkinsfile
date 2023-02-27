@@ -19,7 +19,7 @@ pipeline {
             }
         }
 
-        stage('stupid copy Docetrfile from github') {
+        stage('stupid copy Dockerfile from github') {
             steps {
                 git 'https://github.com/elmcslay/DO_edu-HW11.git'
             }
