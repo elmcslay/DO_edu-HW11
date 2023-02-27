@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Copy from github') {
+        stage('Copy project from github') {
             steps {
                 git 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
             }
@@ -15,6 +15,7 @@ pipeline {
         stage('build project') {
             steps {
                 sh 'mvn package'
+                sh 'mkdir /tmp/boxfuse && cp /target/hello-1.0.war /tmp/boxfuse'
             }
         }
 
