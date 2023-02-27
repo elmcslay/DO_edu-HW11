@@ -1,8 +1,7 @@
-FROM ubuntu:20.04
+FROM openjdk:11
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install default-jdk \
-                                                   maven \
-                                                   docker.io -y
+    DEBIAN_FRONTEND=noninteractive apt-get maven \
+                                           docker.io -y
 
 RUN apt-get clean
