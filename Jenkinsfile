@@ -15,13 +15,12 @@ pipeline {
         stage('build project') {
             steps {
                 sh 'mvn package'
-                sh 'pwd'
             }
         }
 
         stage('create docker image') {
             steps {
-                sh 'git clone https://github.com/elmcslay/DO_edu-HW11.git && cd DO_edu-HW11/'
+                sh 'git clone https://github.com/elmcslay/DO_edu-HW11.git && cp /DO_edu-HW11/Dockerfile ..'
                 sh 'docker build -t dep .'
                 sh 'docker tag dep 158.160.25.103:8083/dep && docker push 158.160.25.103:8083/dep'
             }
