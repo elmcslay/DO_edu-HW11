@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image '158.160.25.103:8083/build-cont'
+            image '158.160.25.103:8083/hw11/build-cont'
         }
     }
 
