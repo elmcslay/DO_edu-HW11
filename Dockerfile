@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt-get update && \
-    apt-get install openjdk-11 \
+    apt-get install default-jdk \
                     maven \
                     docker.io -y
 
