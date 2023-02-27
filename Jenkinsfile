@@ -27,7 +27,7 @@ pipeline {
 
         stage('create docker image') {
             steps {
-                sh 'sudo service docker start'
+                sh 'su service docker start'
                 sh 'cd ./DO_edu-HW11 && docker build -t dep .'
                 sh 'docker tag dep 158.160.25.103:8083/dep && docker push 158.160.25.103:8083/dep'
             }
