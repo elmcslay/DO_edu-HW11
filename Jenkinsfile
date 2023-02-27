@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image ''
+            image '158.160.25.103:8083/hw11/build-cont'
         }
     }
 
@@ -18,6 +18,12 @@ pipeline {
             }
         }
 
-        stage('')    
+        stage('create docker image') {
+            steps {
+                sh 'docker build -t dep .'
+                sh 'docker tag dep 158.160.25.103:8083/dep'
+                sh 'docker push 158.160.25.103:8083/dep'
+            }
+        }
     }
 }
