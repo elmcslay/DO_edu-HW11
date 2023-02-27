@@ -20,9 +20,9 @@ pipeline {
 
         stage('create docker image') {
             steps {
+                git 'https://github.com/elmcslay/DO_edu-HW11.git'
                 sh 'docker build -t dep .'
-                sh 'docker tag dep 158.160.25.103:8083/dep'
-                sh 'docker push 158.160.25.103:8083/dep'
+                sh 'docker tag dep 158.160.25.103:8083/dep && docker push 158.160.25.103:8083/dep'
             }
         }
     }
