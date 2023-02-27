@@ -15,6 +15,7 @@ pipeline {
         stage('build project') {
             steps {
                 sh 'mvn package'
+                sh 'pvd'
             }
         }
 
