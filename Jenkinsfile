@@ -35,8 +35,9 @@ pipeline {
 
         stage('add&run container to demo-deploy') {
             steps {
-                sh 'ssh-keyscan -H 51.250.102.45 >> /root/.ssh/known_hosts'
-                sh 'ssh root@51.250.102.45'
+                sh 'ssh-keyscan -H 51.250.102.45 >> ~/.ssh/known_hosts'
+                sh 'ssh jenkins@51.250.102.45 << EOF
+                    sudo uname -n'
                 //sh 'docker pull 158.160.25.103:8083/dep'
                 //sh 'docker run -it -p 8080:8080 158.160.25.103:8083/dep'
             }
