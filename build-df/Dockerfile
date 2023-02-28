@@ -6,6 +6,3 @@ RUN apt-get update && \
                                                    docker.io -y
 
 RUN apt-get clean
-
-COPY /root/.ssh/id_rsa /root/.ssh/
-RUN chmod 600 /root/.ssh/id_rsa
