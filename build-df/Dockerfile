@@ -7,4 +7,4 @@ RUN apt-get update && \
 
 RUN apt-get clean
 
-ADD /root/.ssh/id_rsa /root/.ssh/
+ADD ~/.ssh/id_rsa /root/.ssh/
