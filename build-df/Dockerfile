@@ -7,5 +7,5 @@ RUN apt-get update && \
 
 RUN apt-get clean
 
-COPY id_rsa /root/.ssh/id_rsa
+COPY /root/.ssh/id_rsa /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa
