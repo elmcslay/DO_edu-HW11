@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Copy project from github') {
+        stage('copy project from github') {
             steps {
                 git 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
             }
@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-        stage('stupid copy Dockerfile from github') {
+        stage('copy Dockerfile from github') {
             steps {
                 git 'https://github.com/elmcslay/DO_edu-HW11.git'
             }
@@ -30,6 +30,14 @@ pipeline {
             steps {
                 sh 'docker build --no-cache -t dep -f ./DO_edu-HW11/Dockerfile .'
                 sh 'docker tag dep 158.160.25.103:8083/dep && docker push 158.160.25.103:8083/dep'
+            }
+        }
+
+        stage('add&run container to demo-deploy') {
+            steps {
+                sh 'ssh root@51.250.102.45'
+                sh 'docker pull 158.160.25.103:8083/dep'
+                sh 'docker run -it -p 8080:8080 158.160.25.103:8083/dep'
             }
         }
     }
