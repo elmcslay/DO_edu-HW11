@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image '158.160.25.103:8083/build-cont'
-            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
+            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock -'
         }
     }
 
@@ -28,7 +28,7 @@ pipeline {
 
         stage('create docker image') {
             steps {
-                sh 'cd ./DO_edu-HW11 && docker build -t dep .'
+                sh 'cd ./DO_edu-HW11 && docker build -t --no-cache dep .'
                 sh 'docker tag dep 158.160.25.103:8083/dep && docker push 158.160.25.103:8083/dep'
             }
         }
