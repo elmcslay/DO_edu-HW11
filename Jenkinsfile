@@ -35,11 +35,9 @@ pipeline {
 
         stage('add&run container to demo-deploy') {
             steps {
-                sshagent(credentials : ['eb80a320-d4fe-43a8-9e0a-ff799ab20534']) {
-                    sh 'ssh user@51.250.102.45'
-                    sh 'docker pull 158.160.25.103:8083/dep'
-                    sh 'docker run -it -p 8080:8080 158.160.25.103:8083/dep'
-                }
+                sh 'ssh user@51.250.102.45'
+                //sh 'docker pull 158.160.25.103:8083/dep'
+                //sh 'docker run -it -p 8080:8080 158.160.25.103:8083/dep'
             }
         }
     }
