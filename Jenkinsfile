@@ -23,6 +23,8 @@ pipeline {
         stage('copy Dockerfile from github') {
             steps {
                 sh 'ls -la'
+                sh 'mkdir hw && cd hw'
+                sh 'pwd && ls -la'
                 git 'https://github.com/elmcslay/DO_edu-HW11.git'
                 sh 'pwd && ls -la'
             }
@@ -30,7 +32,7 @@ pipeline {
 
         stage('create docker image') {
             steps {
-                sh 'docker build --no-cache -t dep -f DO_edu-HW11/Dockerfile /tmp/boxfuse/'
+                sh 'docker build --no-cache -t dep -f Dockerfile /tmp/boxfuse/'
                 sh 'docker tag dep 158.160.25.103:8083/dep && docker push 158.160.25.103:8083/dep'
             }
         }
