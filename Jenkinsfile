@@ -28,7 +28,7 @@ pipeline {
 
         stage('create docker image') {
             steps {
-                sh 'docker build --no-cache -t dep -f ./DO_edu-HW11/Dockerfile .'
+                sh 'docker build --no-cache -t dep -f ./DO_edu-HW11/Dockerfile /tmp/boxfuse/'
                 sh 'docker tag dep 158.160.25.103:8083/dep && docker push 158.160.25.103:8083/dep'
             }
         }
