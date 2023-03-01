@@ -16,7 +16,7 @@ pipeline {
         stage('build project') {
             steps {
                 sh 'mvn package'
-                sh 'mkdir /tmp/boxfuse && cp ./target/hello-1.0.war /tmp/boxfuse'
+                sh 'mkdir /tmp/boxfuse && cp target/hello-1.0.war /tmp/boxfuse'
             }
         }
 
