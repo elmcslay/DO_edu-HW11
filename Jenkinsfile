@@ -23,6 +23,7 @@ pipeline {
         stage('copy Dockerfile from github') {
             steps {
                 git 'https://github.com/elmcslay/DO_edu-HW11.git'
+                sh 'pwd'
             }
         }
 
